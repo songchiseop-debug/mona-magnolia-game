@@ -240,6 +240,185 @@
         #resultCard .magnolia-deco.bl { bottom: 8px; left: 8px; }
         #resultCard .magnolia-deco.br { bottom: 8px; right: 8px; }
 
+        /* === 레벨 클리어 카드 === */
+        #levelClearCard {
+            background: linear-gradient(180deg, #fff 0%, #fff8e8 100%);
+            border-radius: 28px;
+            padding: 28px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(196, 27, 90, 0.25);
+            border: 4px solid #fed330;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            animation: clearPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes clearPop {
+            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+        .clear-stars {
+            font-size: 28px;
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+            animation: starsPulse 0.6s ease-in-out;
+        }
+        @keyframes starsPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .clear-badge {
+            display: inline-block;
+            background: #c41b5a;
+            color: white;
+            padding: 4px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .clear-title {
+            font-size: 44px;
+            font-weight: 900;
+            color: #c41b5a;
+            margin: 4px 0 18px;
+            font-family: Georgia, serif;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 #fed330;
+        }
+        .clear-stats {
+            background: rgba(196, 27, 90, 0.05);
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            font-size: 14px;
+            color: #5a4434;
+        }
+        .stat-row strong {
+            color: #c41b5a;
+            font-weight: 800;
+            font-size: 15px;
+        }
+        .next-info {
+            background: linear-gradient(135deg, #c41b5a 0%, #9c1448 100%);
+            color: white;
+            border-radius: 18px;
+            padding: 14px;
+            margin-top: 6px;
+        }
+        .next-label {
+            font-size: 10px;
+            opacity: 0.8;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+        .next-level {
+            font-size: 24px;
+            font-weight: 900;
+            margin: 2px 0;
+            font-family: Georgia, serif;
+        }
+        .next-msg {
+            font-size: 13px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+        .next-goal {
+            margin-top: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 999px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        /* === 엔딩 씬 === */
+        #endingScene {
+            width: 100%;
+            max-width: 340px;
+            margin-bottom: 16px;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+            border: 4px solid #c41b5a;
+            animation: endingFadeIn 1s ease-out;
+        }
+        @keyframes endingFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #endingCanvas {
+            display: block;
+            width: 100%;
+            height: 240px;
+        }
+        .ending-overlay {
+            padding: 16px 20px 20px;
+            background: linear-gradient(180deg, #fff 0%, #fff8e8 100%);
+            text-align: center;
+        }
+        .ending-trophy {
+            font-size: 48px;
+            animation: trophySpin 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes trophySpin {
+            0%, 100% { transform: rotate(-8deg) scale(1); }
+            50% { transform: rotate(8deg) scale(1.1); }
+        }
+        .ending-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: #c41b5a;
+            margin: 4px 0 2px;
+            text-shadow: 2px 2px 0 #fed330;
+        }
+        .ending-subtitle {
+            font-size: 14px;
+            color: #4a5629;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        .ending-score {
+            background: #c41b5a;
+            color: white;
+            border-radius: 14px;
+            padding: 10px;
+            margin-bottom: 12px;
+        }
+        .ending-score-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            opacity: 0.85;
+            font-weight: 700;
+        }
+        .ending-score-num {
+            font-size: 36px;
+            font-weight: 900;
+            font-family: Georgia, serif;
+            line-height: 1.1;
+        }
+        .ending-credit {
+            font-size: 12px;
+            color: #999;
+            font-style: italic;
+            letter-spacing: 1.5px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+            margin-top: 4px;
+            font-family: Georgia, 'Apple SD Gothic Neo', serif;
+        }
+        
         /* 캡처 안내 토스트 */
         #toast {
             position: fixed;
@@ -324,9 +503,10 @@
         <h2 id="msg-sub">발왕산 봄날의 모험</h2>
         <div class="controls-hint" id="hint">
             🖐️ <b>화면을 드래그</b>해서 부엉이를 움직이세요<br>
-            🌸 떨어지는 <b>산목련</b>을 받으면 +10점<br>
+            🌸 <b>산목련</b>을 받으면 +10점 (레벨 클리어!)<br>
+            ⭐ <b>황금 꽃</b>은 +50점 보너스<br>
             🍂 <b>낙엽</b>은 피하세요! (-1 ♥)<br>
-            ⭐ <b>황금 꽃</b>은 +50점 보너스!
+            🏆 <b>총 20레벨</b>에 도전하세요!
         </div>
         <div class="btn-row" id="btnRow">
             <button class="btn" onclick="startGame()">축제 시작 🌸</button>
@@ -1005,21 +1185,51 @@
         }
     }
 
+    // === 레벨별 난이도 설정 (20단계) ===
+    function getLevelConfig(lv) {
+        // 클램프
+        const L = Math.max(1, Math.min(20, lv));
+        // 진행률 0~1
+        const t = (L - 1) / 19;
+        
+        return {
+            // 레벨 클리어에 필요한 산목련 개수 (8 → 24)
+            targetCatch: Math.floor(8 + t * 16),
+            // 낙하 속도 (1.8 → 7.0)
+            speed: 1.8 + t * 5.2,
+            // 아이템 생성 간격 ms (900 → 250)
+            spawnInterval: Math.max(900 - L * 35, 250),
+            // 낙엽 비율 (0.12 → 0.45)
+            leafChance: 0.12 + t * 0.33,
+            // 황금꽃 비율 (0.06 → 0.12, 후반에 보상)
+            goldChance: 0.06 + t * 0.06,
+            // 동시 낙하 (1 → 2개씩)
+            multiSpawn: L >= 12 ? 2 : 1,
+            // 위아래 좌우 흔들림 강도
+            swayStrength: 1.0 + t * 1.5
+        };
+    }
+    
+    let levelConfig = null; // 현재 레벨 설정
+    let levelCaught = 0;     // 현재 레벨에서 받은 산목련 개수
+    let levelClearing = false; // 레벨 클리어 중 (다음 레벨 대기)
+    
     function createItem() {
+        const cfg = levelConfig;
         const r = Math.random();
         let type = 'magnolia';
-        if (r < 0.08) type = 'gold';
-        else if (r < 0.25 + stage * 0.02) type = 'leaf';
+        if (r < cfg.goldChance) type = 'gold';
+        else if (r < cfg.goldChance + cfg.leafChance) type = 'leaf';
         
-        const baseSpeed = 1.8 + (stage * 0.4);
         items.push({
             x: 30 + Math.random() * (W - 60),
             y: -40,
             size: type === 'gold' ? 22 : (18 + Math.random() * 6),
-            speed: baseSpeed + Math.random() * 0.8,
+            speed: cfg.speed + Math.random() * 0.8,
             angle: Math.random() * Math.PI * 2,
             spin: (Math.random() - 0.5) * 0.08,
             sway: Math.random() * Math.PI * 2,
+            swayStr: cfg.swayStrength,
             type
         });
     }
@@ -1039,20 +1249,47 @@
         score = 0; life = 3; stage = 1; 
         items = []; particles = []; combo = 0;
         totalCaught = 0; totalGold = 0;
-        stageGoal = 50;
+        levelCaught = 0;
+        levelClearing = false;
+        levelConfig = getLevelConfig(stage);
         gameActive = true;
         overlay.style.display = 'none';
         
-        // 결과 카드 제거
+        // 결과 카드 / 레벨 클리어 화면 제거
         const oldCard = document.getElementById('resultCard');
         if (oldCard) oldCard.remove();
+        const oldClear = document.getElementById('levelClearCard');
+        if (oldClear) oldClear.remove();
+        const oldEnding = document.getElementById('endingScene');
+        if (oldEnding) oldEnding.remove();
         
-        // 힌트 표시 복원
+        // 시작 화면 요소 복원
         hintEl.style.display = '';
         document.querySelector('.owl-icon').style.display = '';
+        document.querySelector('.overlay-logo').style.display = '';
         
         // 배경음악 시작
         if (soundOn) startBgm();
+        
+        updateUI();
+        lastSpawnTime = performance.now();
+        requestAnimationFrame(gameLoop);
+    }
+    
+    // === 다음 레벨 시작 (이어하기) ===
+    function nextLevel() {
+        stage++;
+        levelCaught = 0;
+        levelClearing = false;
+        levelConfig = getLevelConfig(stage);
+        items = []; particles = []; combo = 0;
+        gameActive = true;
+        overlay.style.display = 'none';
+        
+        const oldClear = document.getElementById('levelClearCard');
+        if (oldClear) oldClear.remove();
+        
+        if (soundOn && !bgmStarted) startBgm();
         
         updateUI();
         lastSpawnTime = performance.now();
@@ -1081,9 +1318,11 @@
         owl.wingPhase += 0.15;
         owl.squish *= 0.85;
 
-        const spawnInterval = Math.max(900 - (stage * 60), 350);
-        if (timestamp - lastSpawnTime > spawnInterval) {
-            createItem();
+        // 아이템 생성 (레벨 후반에는 한번에 여러 개 등장)
+        if (!levelClearing && timestamp - lastSpawnTime > levelConfig.spawnInterval) {
+            for (let n = 0; n < levelConfig.multiSpawn; n++) {
+                createItem();
+            }
             lastSpawnTime = timestamp;
         }
 
@@ -1092,7 +1331,7 @@
             item.y += item.speed;
             item.angle += item.spin;
             item.sway += 0.04;
-            item.x += Math.sin(item.sway) * 1.2;
+            item.x += Math.sin(item.sway) * 1.2 * (item.swayStr || 1);
 
             if (item.type === 'magnolia') drawMagnolia(item.x, item.y, item.size, item.angle);
             else if (item.type === 'gold') drawGoldenFlower(item.x, item.y, item.size, item.angle);
@@ -1143,18 +1382,28 @@
                 }
                 items.splice(i, 1);
                 
-                if (score >= stage * stageGoal && stage < 10) {
-                    stage++;
-                    showCombo('LEVEL ' + stage + '!');
-                    playGold();
+                // 산목련(또는 황금꽃)을 받으면 레벨 진척
+                if (item.type === 'magnolia' || item.type === 'gold') {
+                    levelCaught++;
+                    
+                    // 현재 레벨 목표 달성!
+                    if (levelCaught >= levelConfig.targetCatch) {
+                        if (stage >= 20) {
+                            // === 마지막 레벨 클리어 → 엔딩! ===
+                            ctx.restore();
+                            updateParticles();
+                            triggerEnding();
+                            return;
+                        } else {
+                            // === 다음 레벨로 ===
+                            ctx.restore();
+                            updateParticles();
+                            showLevelClear();
+                            return;
+                        }
+                    }
                 }
                 
-                if (stage >= 10 && score >= 600) {
-                    ctx.restore();
-                    updateParticles();
-                    endGame(true);
-                    return;
-                }
                 updateUI();
                 continue;
             }
@@ -1179,16 +1428,453 @@
         requestAnimationFrame(gameLoop);
     }
 
+    // === 레벨 클리어 화면 ===
+    function showLevelClear() {
+        gameActive = false;
+        levelClearing = true;
+        playGold();
+        setTimeout(() => playGold(), 200);
+        vibrate([0, 60, 40, 80]);
+        
+        overlay.style.display = 'flex';
+        hintEl.style.display = 'none';
+        document.querySelector('.owl-icon').style.display = 'none';
+        document.querySelector('.overlay-logo').style.display = 'none';
+        msgTitle.style.display = 'none';
+        msgSub.style.display = 'none';
+        
+        // 기존 카드 제거
+        const oldClear = document.getElementById('levelClearCard');
+        if (oldClear) oldClear.remove();
+        const oldCard = document.getElementById('resultCard');
+        if (oldCard) oldCard.remove();
+        
+        // 클리어 카드 생성
+        const card = document.createElement('div');
+        card.id = 'levelClearCard';
+        const nextLv = stage + 1;
+        const nextCfg = getLevelConfig(nextLv);
+        
+        // 레벨별 메시지
+        let stageMsg = '';
+        if (nextLv <= 5) stageMsg = '봄바람이 살랑살랑~';
+        else if (nextLv <= 10) stageMsg = '꽃잎이 더 빨라져요!';
+        else if (nextLv <= 15) stageMsg = '낙엽 조심! 폭풍이 와요';
+        else if (nextLv < 20) stageMsg = '⚠️ 마스터 구간 진입!';
+        else stageMsg = '🏆 최종 라운드!';
+        
+        card.innerHTML = `
+            <div class="clear-stars">⭐ ⭐ ⭐</div>
+            <div class="clear-badge">LEVEL ${stage}</div>
+            <div class="clear-title">CLEAR!</div>
+            <div class="clear-stats">
+                <div class="stat-row"><span>현재 점수</span><strong>${score}</strong></div>
+                <div class="stat-row"><span>총 산목련</span><strong>${totalCaught}개</strong></div>
+                <div class="stat-row"><span>황금꽃</span><strong>${totalGold}개</strong></div>
+                <div class="stat-row"><span>남은 생명</span><strong>${'♥'.repeat(life)}</strong></div>
+            </div>
+            <div class="next-info">
+                <div class="next-label">NEXT</div>
+                <div class="next-level">LEVEL ${nextLv}</div>
+                <div class="next-msg">${stageMsg}</div>
+                <div class="next-goal">🌸 목표: ${nextCfg.targetCatch}개</div>
+            </div>
+        `;
+        overlay.insertBefore(card, btnRow);
+        
+        btnRow.innerHTML = `
+            <button class="btn" onclick="nextLevel()">▶ 레벨 ${nextLv} 시작</button>
+        `;
+    }
+    
+    // === 엔딩 시퀀스 (레벨 20 클리어!) ===
+    let endingState = null; // {phase, time, owlX, owlY, wave}
+    
+    function triggerEnding() {
+        gameActive = false;
+        stopBgm();
+        playGold();
+        setTimeout(() => playGold(), 200);
+        setTimeout(() => playGold(), 400);
+        vibrate([0, 100, 50, 100, 50, 200]);
+        
+        overlay.style.display = 'flex';
+        hintEl.style.display = 'none';
+        document.querySelector('.owl-icon').style.display = 'none';
+        document.querySelector('.overlay-logo').style.display = 'none';
+        msgTitle.style.display = 'none';
+        msgSub.style.display = 'none';
+        
+        // 기존 카드 제거
+        ['levelClearCard', 'resultCard', 'endingScene'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        });
+        
+        // 엔딩 씬 컨테이너 (캔버스 위에 그릴 것)
+        const scene = document.createElement('div');
+        scene.id = 'endingScene';
+        scene.innerHTML = `
+            <canvas id="endingCanvas"></canvas>
+            <div class="ending-overlay">
+                <div class="ending-trophy">🏆</div>
+                <div class="ending-title">완벽한 축제!</div>
+                <div class="ending-subtitle">LEVEL 20 클리어!</div>
+                <div class="ending-score">
+                    <div class="ending-score-label">FINAL SCORE</div>
+                    <div class="ending-score-num">${score}</div>
+                </div>
+                <div class="ending-credit">created by chisup song</div>
+            </div>
+        `;
+        overlay.insertBefore(scene, btnRow);
+        
+        btnRow.innerHTML = `
+            <button class="btn" onclick="captureAndApply()">📸 점수 캡처 & 응모하기</button>
+            <button class="btn secondary" onclick="startGame()">🦉 처음부터 다시</button>
+        `;
+        
+        // 엔딩 캔버스 애니메이션 시작
+        startEndingAnimation();
+    }
+    
+    function startEndingAnimation() {
+        const eCanvas = document.getElementById('endingCanvas');
+        if (!eCanvas) return;
+        const eCtx = eCanvas.getContext('2d');
+        const rect = eCanvas.parentElement.getBoundingClientRect();
+        const w = rect.width;
+        const h = 240;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        eCanvas.width = w * dpr;
+        eCanvas.height = h * dpr;
+        eCanvas.style.width = w + 'px';
+        eCanvas.style.height = h + 'px';
+        eCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        
+        endingState = {
+            time: 0,
+            petals: [],
+            confetti: []
+        };
+        
+        // 떨어지는 꽃잎들
+        for (let i = 0; i < 25; i++) {
+            endingState.petals.push({
+                x: Math.random() * w,
+                y: -Math.random() * h,
+                size: 8 + Math.random() * 8,
+                speed: 0.5 + Math.random() * 1.2,
+                angle: Math.random() * Math.PI * 2,
+                spin: (Math.random() - 0.5) * 0.04,
+                sway: Math.random() * Math.PI * 2,
+                color: Math.random() < 0.3 ? 'gold' : 'white'
+            });
+        }
+        // 컨페티
+        for (let i = 0; i < 30; i++) {
+            endingState.confetti.push({
+                x: Math.random() * w,
+                y: -Math.random() * 100,
+                vx: (Math.random() - 0.5) * 2,
+                vy: 1 + Math.random() * 2,
+                size: 4 + Math.random() * 4,
+                color: ['#c41b5a', '#4a5629', '#fed330', '#ff8a4c', '#a8336a'][Math.floor(Math.random() * 5)],
+                rot: Math.random() * Math.PI * 2,
+                vrot: (Math.random() - 0.5) * 0.2
+            });
+        }
+        
+        function loop() {
+            if (!endingState) return;
+            endingState.time++;
+            const t = endingState.time;
+            
+            // 배경 (석양 그라데이션)
+            const grad = eCtx.createLinearGradient(0, 0, 0, h);
+            grad.addColorStop(0, '#ffb88c');
+            grad.addColorStop(0.5, '#ffd6a5');
+            grad.addColorStop(1, '#fff0d4');
+            eCtx.fillStyle = grad;
+            eCtx.fillRect(0, 0, w, h);
+            
+            // 멀리 산 실루엣
+            eCtx.fillStyle = 'rgba(74, 86, 41, 0.4)';
+            eCtx.beginPath();
+            eCtx.moveTo(0, h * 0.6);
+            for (let x = 0; x <= w; x += 20) {
+                const y = h * 0.6 + Math.sin(x * 0.02) * 15 + Math.sin(x * 0.05) * 8;
+                eCtx.lineTo(x, y);
+            }
+            eCtx.lineTo(w, h);
+            eCtx.lineTo(0, h);
+            eCtx.closePath();
+            eCtx.fill();
+            
+            // 잔디 언덕
+            eCtx.fillStyle = '#8fc24a';
+            eCtx.beginPath();
+            eCtx.moveTo(0, h * 0.85);
+            for (let x = 0; x <= w; x += 30) {
+                const y = h * 0.85 + Math.sin(x * 0.03 + t * 0.01) * 3;
+                eCtx.lineTo(x, y);
+            }
+            eCtx.lineTo(w, h);
+            eCtx.lineTo(0, h);
+            eCtx.closePath();
+            eCtx.fill();
+            
+            // 떨어지는 꽃잎
+            endingState.petals.forEach(p => {
+                p.y += p.speed;
+                p.x += Math.sin(p.sway + t * 0.02) * 0.8;
+                p.angle += p.spin;
+                if (p.y > h + 20) {
+                    p.y = -20;
+                    p.x = Math.random() * w;
+                }
+                if (p.color === 'gold') {
+                    drawGoldenFlower(p.x, p.y, p.size, p.angle);
+                } else {
+                    drawMagnolia(p.x, p.y, p.size, p.angle);
+                }
+            });
+            
+            // 컨페티 (위에서 떨어지는 색종이)
+            endingState.confetti.forEach(c => {
+                c.x += c.vx;
+                c.y += c.vy;
+                c.rot += c.vrot;
+                if (c.y > h + 10) {
+                    c.y = -10;
+                    c.x = Math.random() * w;
+                }
+                eCtx.save();
+                eCtx.translate(c.x, c.y);
+                eCtx.rotate(c.rot);
+                eCtx.fillStyle = c.color;
+                eCtx.fillRect(-c.size/2, -c.size/2, c.size, c.size * 0.6);
+                eCtx.restore();
+            });
+            
+            // === 부엉이 (점프하며 손 흔드는 애니메이션) ===
+            const owlCx = w / 2;
+            // 점프 (위아래)
+            const jumpCycle = (t * 0.04) % (Math.PI * 2);
+            const jumpY = Math.abs(Math.sin(jumpCycle)) * -25;
+            const owlCy = h * 0.78 + jumpY;
+            // 손 흔들기
+            const wavePhase = t * 0.12;
+            
+            drawWavingOwl(eCtx, owlCx, owlCy, 80, wavePhase, jumpCycle);
+            
+            // "안녕!" 말풍선
+            if (t > 30) {
+                drawSpeechBubble(eCtx, owlCx + 50, owlCy - 60, t);
+            }
+            
+            requestAnimationFrame(loop);
+        }
+        loop();
+    }
+    
+    // 손 흔드는 부엉이 그리기 (엔딩 전용)
+    function drawWavingOwl(ec, cx, cy, sz, wavePhase, jumpPhase) {
+        ec.save();
+        ec.translate(cx, cy);
+        const s = sz / 80;
+        
+        // 그림자
+        ec.fillStyle = 'rgba(0, 0, 0, 0.2)';
+        ec.beginPath();
+        ec.ellipse(0, 45 * s, sz * 0.4, 5, 0, 0, Math.PI * 2);
+        ec.fill();
+        
+        // 몸통
+        ec.fillStyle = '#f9b87a';
+        ec.strokeStyle = '#3d2817';
+        ec.lineWidth = 2.5;
+        ec.beginPath();
+        ec.ellipse(0, 5 * s, 32 * s, 35 * s, 0, 0, Math.PI * 2);
+        ec.fill();
+        ec.stroke();
+        
+        // 왼쪽 날개 (정상)
+        ec.save();
+        ec.translate(-25 * s, 5 * s);
+        ec.rotate(-0.3);
+        ec.fillStyle = '#e89a5c';
+        ec.beginPath();
+        ec.ellipse(-5 * s, 0, 12 * s, 22 * s, 0, 0, Math.PI * 2);
+        ec.fill();
+        ec.stroke();
+        ec.restore();
+        
+        // === 오른쪽 날개 (손 흔들기!) ===
+        ec.save();
+        ec.translate(20 * s, -5 * s);
+        // 위로 들고 흔들기
+        const waveAngle = -1.5 + Math.sin(wavePhase) * 0.4;
+        ec.rotate(waveAngle);
+        ec.fillStyle = '#e89a5c';
+        ec.strokeStyle = '#3d2817';
+        ec.beginPath();
+        ec.ellipse(0, -18 * s, 10 * s, 22 * s, 0, 0, Math.PI * 2);
+        ec.fill();
+        ec.stroke();
+        // 손가락 깃털 디테일
+        ec.beginPath();
+        ec.moveTo(-3 * s, -35 * s);
+        ec.lineTo(-5 * s, -40 * s);
+        ec.moveTo(0, -38 * s);
+        ec.lineTo(0, -42 * s);
+        ec.moveTo(3 * s, -35 * s);
+        ec.lineTo(5 * s, -40 * s);
+        ec.stroke();
+        ec.restore();
+        
+        // 머리
+        ec.fillStyle = '#f9b87a';
+        ec.beginPath();
+        ec.arc(0, -20 * s, 28 * s, 0, Math.PI * 2);
+        ec.fill();
+        ec.stroke();
+        
+        // 귀
+        ec.beginPath();
+        ec.moveTo(-22 * s, -38 * s); ec.lineTo(-14 * s, -52 * s); ec.lineTo(-8 * s, -36 * s);
+        ec.closePath(); ec.fill(); ec.stroke();
+        ec.beginPath();
+        ec.moveTo(22 * s, -38 * s); ec.lineTo(14 * s, -52 * s); ec.lineTo(8 * s, -36 * s);
+        ec.closePath(); ec.fill(); ec.stroke();
+        
+        // 얼굴
+        ec.fillStyle = '#fff4d6';
+        ec.beginPath();
+        ec.arc(0, -16 * s, 20 * s, 0, Math.PI * 2);
+        ec.fill();
+        ec.strokeStyle = '#3d2817';
+        ec.lineWidth = 2;
+        ec.stroke();
+        
+        // 눈 (행복한 웃는 눈! ^ ^)
+        ec.strokeStyle = '#3d2817';
+        ec.lineWidth = 2.5;
+        ec.lineCap = 'round';
+        ec.beginPath();
+        // 왼쪽 눈 ^
+        ec.moveTo(-13 * s, -16 * s);
+        ec.lineTo(-8 * s, -21 * s);
+        ec.lineTo(-3 * s, -16 * s);
+        // 오른쪽 눈 ^
+        ec.moveTo(3 * s, -16 * s);
+        ec.lineTo(8 * s, -21 * s);
+        ec.lineTo(13 * s, -16 * s);
+        ec.stroke();
+        
+        // 볼터치
+        ec.fillStyle = 'rgba(255, 130, 130, 0.6)';
+        ec.beginPath();
+        ec.arc(-13 * s, -9 * s, 4 * s, 0, Math.PI * 2);
+        ec.arc(13 * s, -9 * s, 4 * s, 0, Math.PI * 2);
+        ec.fill();
+        
+        // 부리 (살짝 열린 모양 - 인사)
+        ec.fillStyle = '#ff8a4c';
+        ec.strokeStyle = '#3d2817';
+        ec.lineWidth = 1.5;
+        ec.beginPath();
+        ec.moveTo(0, -12 * s);
+        ec.lineTo(-4 * s, -6 * s);
+        ec.lineTo(4 * s, -6 * s);
+        ec.closePath();
+        ec.fill(); ec.stroke();
+        // 입 안
+        ec.fillStyle = '#c44';
+        ec.beginPath();
+        ec.ellipse(0, -7 * s, 2 * s, 1 * s, 0, 0, Math.PI * 2);
+        ec.fill();
+        
+        // 배 깃털
+        ec.fillStyle = '#3d2817';
+        ec.beginPath();
+        ec.ellipse(-5 * s, 12 * s, 1.5 * s, 3 * s, 0, 0, Math.PI * 2);
+        ec.ellipse(0, 14 * s, 1.5 * s, 3 * s, 0, 0, Math.PI * 2);
+        ec.ellipse(5 * s, 12 * s, 1.5 * s, 3 * s, 0, 0, Math.PI * 2);
+        ec.fill();
+        
+        // 발
+        ec.fillStyle = '#ff8a4c';
+        ec.strokeStyle = '#3d2817';
+        ec.lineWidth = 1.5;
+        ec.beginPath();
+        ec.ellipse(-10 * s, 37 * s, 7 * s, 4 * s, 0, 0, Math.PI * 2);
+        ec.fill(); ec.stroke();
+        ec.beginPath();
+        ec.ellipse(10 * s, 37 * s, 7 * s, 4 * s, 0, 0, Math.PI * 2);
+        ec.fill(); ec.stroke();
+        
+        ec.restore();
+    }
+    
+    // 인사 말풍선
+    function drawSpeechBubble(ec, x, y, t) {
+        const scale = Math.min(1, (t - 30) / 20);
+        ec.save();
+        ec.translate(x, y);
+        ec.scale(scale, scale);
+        
+        // 살짝 떨림
+        const bounce = Math.sin(t * 0.1) * 1.5;
+        ec.translate(0, bounce);
+        
+        // 말풍선
+        ec.fillStyle = '#fff';
+        ec.strokeStyle = '#c41b5a';
+        ec.lineWidth = 2.5;
+        ec.beginPath();
+        ec.ellipse(0, 0, 38, 22, 0, 0, Math.PI * 2);
+        ec.fill();
+        ec.stroke();
+        
+        // 꼬리
+        ec.beginPath();
+        ec.moveTo(-18, 12);
+        ec.lineTo(-30, 22);
+        ec.lineTo(-12, 18);
+        ec.closePath();
+        ec.fillStyle = '#fff';
+        ec.fill();
+        ec.stroke();
+        // 꼬리 부분 외곽선 한번 더
+        ec.strokeStyle = '#c41b5a';
+        ec.lineWidth = 2.5;
+        
+        // 텍스트
+        ec.fillStyle = '#c41b5a';
+        ec.font = 'bold 16px "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
+        ec.textAlign = 'center';
+        ec.textBaseline = 'middle';
+        ec.fillText('안녕! 🌸', 0, 0);
+        
+        ec.restore();
+    }
+    
     function endGame(isWin) {
         gameActive = false;
         stopBgm();
         overlay.style.display = 'flex';
         hintEl.style.display = 'none';
         document.querySelector('.owl-icon').style.display = 'none';
+        document.querySelector('.overlay-logo').style.display = '';
+        msgTitle.style.display = '';
+        msgSub.style.display = '';
         
-        // 기존 결과 카드 제거
-        const oldCard = document.getElementById('resultCard');
-        if (oldCard) oldCard.remove();
+        // 기존 카드 제거
+        ['resultCard', 'levelClearCard', 'endingScene'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        });
         
         // 결과 카드 생성 (캡처 대상)
         const card = document.createElement('div');
@@ -1199,8 +1885,8 @@
             <div class="magnolia-deco bl">🌸</div>
             <div class="magnolia-deco br">🌸</div>
             <img class="card-logo" src="${LOGO_DATA_URL}" alt="MONA YONG PYONG">
-            <div class="card-title">${isWin ? '🏆 CHAMPION' : '산목련 축제'}</div>
-            <div class="card-subtitle">${isWin ? '축제 대성공!' : '나의 점수'}</div>
+            <div class="card-title">산목련 축제</div>
+            <div class="card-subtitle">나의 점수</div>
             <div class="score-label">SCORE</div>
             <div class="score-num">${score}</div>
             <div class="stage-info">
@@ -1212,25 +1898,22 @@
         overlay.insertBefore(card, btnRow);
         
         // 타이틀/서브타이틀
-        msgTitle.textContent = isWin ? "🌸 축제 대성공! 🌸" : "수고하셨어요!";
-        msgSub.textContent = isWin ? "당신은 진정한 산목련 마스터!" : `LEVEL ${stage}까지 도달!`;
+        msgTitle.textContent = "수고하셨어요!";
+        msgSub.textContent = `LEVEL ${stage}까지 도달!`;
         
-        // 버튼 변경: 캡처 + 응모 + 재도전
+        // 버튼: 캡처 + 응모 + 재도전
         btnRow.innerHTML = `
             <button class="btn" onclick="captureAndApply()">📸 점수 캡처 & 응모하기</button>
             <button class="btn secondary" onclick="startGame()">🦉 다시 도전</button>
         `;
-        
-        if (isWin) {
-            playGold();
-            setTimeout(() => playGold(), 300);
-        }
     }
     
     // === 점수 캡처 & 응모 ===
     async function captureAndApply() {
+        // 엔딩 또는 일반 게임오버 둘 다 캡처 가능
         const card = document.getElementById('resultCard');
-        if (!card) return;
+        const ending = document.getElementById('endingScene');
+        if (!card && !ending) return;
         
         try {
             // html2canvas 없이 순수 Canvas로 결과 카드를 직접 그려 캡처
@@ -1344,6 +2027,24 @@
                     cx.fillStyle = '#666';
                     cx.font = '18px "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
                     cx.fillText(`도달 레벨  LV ${stage}  ·  산목련 ${totalCaught}개  ·  황금꽃 ${totalGold}개`, cw/2, cursorY);
+                    
+                    // 엔딩 클리어(stage>=20)이면 챔피언 배지 + 크레딧
+                    const isChampion = stage >= 20;
+                    if (isChampion) {
+                        cursorY += 38;
+                        // 챔피언 배지
+                        cx.fillStyle = '#c41b5a';
+                        roundRect(cx, cw/2 - 110, cursorY - 22, 220, 32, 16);
+                        cx.fill();
+                        cx.fillStyle = '#fff';
+                        cx.font = 'bold 16px sans-serif';
+                        cx.fillText('🏆  LEVEL 20 챔피언  🏆', cw/2, cursorY);
+                        
+                        // 크레딧 (캡처 이미지에도 남기기)
+                        cx.fillStyle = '#aaa';
+                        cx.font = 'italic 13px Georgia, serif';
+                        cx.fillText('created by chisup song', cw/2, ch - 55);
+                    }
                     
                     // 하단 워터마크
                     cx.fillStyle = '#999';
